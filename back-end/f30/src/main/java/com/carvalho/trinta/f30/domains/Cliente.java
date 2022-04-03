@@ -1,4 +1,4 @@
-package com.carvalho.trinta.f30.entites;
+package com.carvalho.trinta.f30.domains;
 
 import javax.persistence.*;
 
@@ -13,7 +13,6 @@ public class Cliente implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    private String whatsapp;
     private String telefone;
 
     @Temporal(TemporalType.DATE)
@@ -32,11 +31,11 @@ public class Cliente implements Serializable {
     public Cliente() {
     }
 
-    public Cliente(String nome, String whatsapp, String telefone, Calendar dataCadastro) {
+    public Cliente(String nome, String telefone, Calendar dataCadastro, Calendar dataNascimento) {
         this.nome = nome;
-        this.whatsapp = whatsapp;
         this.telefone = telefone;
         this.dataCadastro = dataCadastro;
+        this.dataNascimento = dataNascimento;
     }
 
     public Long getId() {
@@ -49,14 +48,6 @@ public class Cliente implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getWhatsapp() {
-        return whatsapp;
-    }
-
-    public void setWhatsapp(String whatsapp) {
-        this.whatsapp = whatsapp;
     }
 
     public String getTelefone() {
@@ -73,5 +64,13 @@ public class Cliente implements Serializable {
 
     public void setDataCadastro(Calendar dataCadastro) {
         this.dataCadastro = dataCadastro;
+    }
+
+    public Calendar getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(Calendar dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 }
