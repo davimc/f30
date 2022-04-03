@@ -1,4 +1,4 @@
-package com.carvalho.trinta.f30.entites;
+package com.carvalho.trinta.f30.domains;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
