@@ -3,7 +3,9 @@ package com.carvalho.trinta.f30.domains;
 import javax.persistence.*;
 
 import java.io.Serializable;
-import java.util.Calendar;
+import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Cliente implements Serializable {
@@ -13,13 +15,21 @@ public class Cliente implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    private String telefone;
+    @Column(unique = true)
+    private String cpf;
 
-    @Temporal(TemporalType.DATE)
-    private Calendar dataCadastro;
+    @Column(unique = true)
+    private String email;
 
-    @Temporal(TemporalType.DATE)
-    private Calendar dataNascimento;
+    private LocalDate dataCadastro;
+
+    private LocalDate dataNascimento;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name="TELEFONE")
+    private Set<String> telefone = new HashSet<>();
+
+    //private Endereco endereco;
     //TODO configurar endereço e webservice de cep
     // - rua
     // - bairro
@@ -31,9 +41,10 @@ public class Cliente implements Serializable {
     public Cliente() {
     }
 
-    public Cliente(String nome, String telefone, Calendar dataCadastro, Calendar dataNascimento) {
+    public Cliente(String nome, String cpf, String email,LocalDate dataCadastro, LocalDate dataNascimento) {
         this.nome = nome;
-        this.telefone = telefone;
+        this.email = email;
+        this.cpf = cpf;
         this.dataCadastro = dataCadastro;
         this.dataNascimento = dataNascimento;
     }
@@ -46,31 +57,47 @@ public class Cliente implements Serializable {
         return nome;
     }
 
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public String getTelefone() {
+    public Set<String> getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(String telefone) {
+    public void setTelefone(Set<String> telefone) {
         this.telefone = telefone;
     }
 
-    public Calendar getDataCadastro() {
+    public LocalDate getDataCadastro() {
         return dataCadastro;
     }
 
-    public void setDataCadastro(Calendar dataCadastro) {
+    public void setDataCadastro(LocalDate dataCadastro) {
         this.dataCadastro = dataCadastro;
     }
 
-    public Calendar getDataNascimento() {
+    public LocalDate getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Calendar dataNascimento) {
+    public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 }

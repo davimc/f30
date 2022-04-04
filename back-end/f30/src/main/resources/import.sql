@@ -1,1 +1,0 @@
-INSERT INTO Cliente(nome, telefone, data_cadastro, data_nascimento) VALUES ('Davi','982186943', '2022-03-27','1995-06-02')

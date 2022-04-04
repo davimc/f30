@@ -13,8 +13,6 @@ import java.util.Optional;
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Long> {
     @Transactional(readOnly = true)
-    Page<Cliente> findAll(Pageable pageable);
-    @Transactional(readOnly = true)
     Optional<Cliente> findById(Long id);
 
 }
