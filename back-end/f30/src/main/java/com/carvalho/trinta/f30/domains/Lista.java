@@ -21,9 +21,9 @@ public class Lista implements Serializable {
     @Temporal(TemporalType.DATE)
     private Calendar dataEntrega;
 
-    @ManyToOne
-    @JoinColumn(name = "lista_cliente")
-    private Cliente cliente;
+//    @ManyToOne
+//    @JoinColumn(name = "lista_cliente")
+//    private Cliente cliente;
 
     private Double valor;
     private String formaPagamento;
@@ -37,7 +37,7 @@ public class Lista implements Serializable {
         this.dataPedido = dataPedido;
         this.dataPagamento = dataPagamento;
         this.dataEntrega = dataEntrega;
-        this.cliente = cliente;
+//        this.cliente = cliente;
         this.valor = valor;
         this.formaPagamento = formaPagamento;
         this.obs = obs;
@@ -71,13 +71,13 @@ public class Lista implements Serializable {
         this.dataEntrega = dataEntrega;
     }
 
-    public Cliente getCliente() {
+    /*public Cliente getCliente() {
         return cliente;
     }
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
-    }
+    }*/
 
     public Double getValor() {
         return valor;

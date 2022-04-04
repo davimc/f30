@@ -13,9 +13,9 @@ public class Pedido implements Serializable {
     @ManyToOne
     @JoinColumn(name = "pedido_produto")
     private Produto produto;
-    @ManyToOne
+ /*   @ManyToOne
     @JoinColumn(name = "pedido_lista")
-    private Lista lista;
+    private Lista lista;*/
 
     private Integer qtd;
     //quanto estava o preço no dia
@@ -27,7 +27,7 @@ public class Pedido implements Serializable {
 
     public Pedido(Produto produto, Lista lista, Integer qtd, Double precoDia) {
         this.produto = produto;
-        this.lista = lista;
+//        this.lista = lista;
         this.qtd = qtd;
         this.precoDia = precoDia;
     }
@@ -44,14 +44,14 @@ public class Pedido implements Serializable {
         this.produto = produto;
     }
 
-    public Lista getLista() {
+    /*public Lista getLista() {
         return lista;
     }
 
     public void setLista(Lista lista) {
         this.lista = lista;
     }
-
+*/
     public Integer getQtd() {
         return qtd;
     }
