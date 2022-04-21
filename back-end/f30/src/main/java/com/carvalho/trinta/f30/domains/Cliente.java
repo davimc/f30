@@ -1,5 +1,7 @@
 package com.carvalho.trinta.f30.domains;
 
+import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.*;
 
 import java.io.Serializable;
@@ -21,8 +23,10 @@ public class Cliente implements Serializable {
     @Column(unique = true)
     private String email;
 
+    @UpdateTimestamp
     private LocalDate dataCadastro;
 
+    @UpdateTimestamp
     private LocalDate dataNascimento;
 
     @ElementCollection(fetch = FetchType.EAGER)

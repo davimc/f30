@@ -7,13 +7,14 @@ import org.hibernate.validator.constraints.br.CPF;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
-public class ClienteDTO {
+public class ClienteDTO implements Serializable {
+    private static final Long serialVersionUID = 1L;
+
     private Long id;
     @NotNull(message = "Nome não pode ser nulo")
     @Length(min= 3, max =80, message="O tamanho do nome deve ser entre 3 a 80 caracteres")
@@ -26,12 +27,6 @@ public class ClienteDTO {
     @Email(message = "É necessário registrar um e-mail válido")
     private String email;
 
-    @NotNull(message = "Data de cadastro precisa ser informada")
-    @Temporal(TemporalType.DATE)
-    private LocalDate dataCadastro;
-
-
-    @Temporal(TemporalType.DATE)
     private LocalDate dataNascimento;
 
     @NotEmpty(message = "Você precisa informar ao menos um telefone para contato")
@@ -43,7 +38,8 @@ public class ClienteDTO {
     public ClienteDTO(Cliente cliente) {
         this.id = cliente.getId();
         this.nome = cliente.getNome();
-        this.dataCadastro = cliente.getDataCadastro();
+        this.cpf = cliente.getCpf();
+        this.email = cliente.getEmail();
         this.dataNascimento = cliente.getDataNascimento();
         this.telefone = cliente.getTelefone();
     }
@@ -60,20 +56,28 @@ public class ClienteDTO {
         this.nome = nome;
     }
 
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public Set<String> getTelefone() {
         return telefone;
     }
 
     public void setTelefone(Set<String> telefone) {
         this.telefone = telefone;
-    }
-
-    public LocalDate getDataCadastro() {
-        return dataCadastro;
-    }
-
-    public void setDataCadastro(LocalDate dataCadastro) {
-        this.dataCadastro = dataCadastro;
     }
 
     public LocalDate getDataNascimento() {

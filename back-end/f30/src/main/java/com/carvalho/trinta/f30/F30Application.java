@@ -22,7 +22,7 @@ public class F30Application implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		Cliente c1 = new Cliente("Davi","60727289365", "davimatosc@hotmail.com", LocalDate.of(2022,04,03),LocalDate.of(1995,06,02));
+		Cliente c1 = new Cliente("Davi","607.272.893-65", "davimatosc@hotmail.com", LocalDate.of(2022,04,03),LocalDate.of(1995,06,02));
 		Cliente c2 = new Cliente("Murilo","273.852.070-73", "louro@gmail.com",LocalDate.of(2022,03,01), LocalDate.of(2004,07,27));
 
 		c1.getTelefone().addAll(Arrays.asList("982186943", "984121438"));
