@@ -2,6 +2,7 @@ package com.carvalho.trinta.f30.resources;
 
 import com.carvalho.trinta.f30.DTO.ClienteDTO;
 import com.carvalho.trinta.f30.DTO.ClienteNewDTO;
+import com.carvalho.trinta.f30.DTO.ClienteUpdateDTO;
 import com.carvalho.trinta.f30.domains.Cliente;
 import com.carvalho.trinta.f30.services.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +42,7 @@ public class ClienteResource {
         return ResponseEntity.created(uri).build();
     }
     @PutMapping(value = "/update/{id}")
-    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody @Valid ClienteDTO objDTO) {
+    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody @Valid ClienteUpdateDTO objDTO) {
         return ResponseEntity.ok().body(service.update(id, objDTO));
     }
 }

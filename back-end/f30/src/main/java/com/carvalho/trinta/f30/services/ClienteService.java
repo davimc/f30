@@ -2,6 +2,7 @@ package com.carvalho.trinta.f30.services;
 
 import com.carvalho.trinta.f30.DTO.ClienteDTO;
 import com.carvalho.trinta.f30.DTO.ClienteNewDTO;
+import com.carvalho.trinta.f30.DTO.ClienteUpdateDTO;
 import com.carvalho.trinta.f30.domains.Cliente;
 import com.carvalho.trinta.f30.repositories.ClienteRepository;
 import com.carvalho.trinta.f30.services.exceptions.ObjectNotFoundException;
@@ -47,11 +48,11 @@ public class ClienteService {
     }
 
 
-    public ClienteDTO update(Long id,ClienteDTO newObjDTO) {
-        Cliente newObj = findById(id);
+    public ClienteDTO update(Long id, ClienteUpdateDTO objDTO) {
+        Cliente obj = findById(id);
 
-        newObj = ClienteDTO.updateCliente(newObj, newObjDTO);
-        return new ClienteDTO(repository.save(newObj));
+        obj = ClienteUpdateDTO.update(obj, objDTO);
+        return new ClienteDTO(repository.save(obj));
     }
 
 
@@ -60,14 +61,14 @@ public class ClienteService {
         newObj.getTelefone().addAll(obj.getTelefone());
         return newObj;
     }*/
-    private Cliente fromDTO (ClienteNewDTO obj) {
-        Cliente newObj = new Cliente(obj.getNome(),obj.getCpf(),obj.getEmail(),LocalDate.now(), obj.getDataNascimento());
-        newObj.getTelefone().add(obj.getTelefone1());
-        if(obj.getTelefone2()==null)
-        newObj.getTelefone().add(obj.getTelefone2());
-        if(obj.getTelefone3()==null)
-        newObj.getTelefone().add(obj.getTelefone3());
+    private Cliente fromDTO (ClienteNewDTO objDTO) {
+        Cliente obj = new Cliente(objDTO.getNome(),objDTO.getCpf(),objDTO.getEmail(),LocalDate.now(), objDTO.getDataNascimento());
+        obj.getTelefone().add(objDTO.getTelefone1());
+        if(objDTO.getTelefone2()==null)
+        obj.getTelefone().add(objDTO.getTelefone2());
+        if(objDTO.getTelefone3()==null)
+        obj.getTelefone().add(objDTO.getTelefone3());
 
-        return newObj;
+        return obj;
     }
 }
