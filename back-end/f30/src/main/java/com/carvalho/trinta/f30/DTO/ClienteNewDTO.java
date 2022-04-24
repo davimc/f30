@@ -4,13 +4,10 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.br.CPF;
 
-import javax.persistence.Column;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
@@ -40,16 +37,6 @@ public class ClienteNewDTO implements Serializable {
     private String telefone3;
 
     public ClienteNewDTO() {
-    }
-
-    public ClienteNewDTO(String nome, String cpf, String email, LocalDate dataNascimento, String telefone1, String telefone2, String telefone3) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.email = email;
-        this.dataNascimento = dataNascimento;
-        this.telefone1 = telefone1;
-        this.telefone2 = telefone2;
-        this.telefone3 = telefone3;
     }
 
     public String getNome() {
