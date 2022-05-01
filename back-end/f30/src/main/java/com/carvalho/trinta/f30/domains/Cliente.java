@@ -1,12 +1,15 @@
 package com.carvalho.trinta.f30.domains;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -19,36 +22,27 @@ public class Cliente implements Serializable {
     private String nome;
     @Column(unique = true)
     private String cpf;
-
     @Column(unique = true)
     private String email;
 
     @UpdateTimestamp
     private LocalDate dataCadastro;
-
     @UpdateTimestamp
     private LocalDate dataNascimento;
-
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name="TELEFONE")
     private Set<String> telefone = new HashSet<>();
-
-    //private Endereco endereco;
-    //TODO configurar endereço e webservice de cep
-    // - rua
-    // - bairro
-    // - numero
-    // - complemento
-    // - referência
-    // - CEP
+    @JsonIgnore
+    @OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
+    private List<Endereco> endereco = new ArrayList();
 
     public Cliente() {
     }
 
-    public Cliente(String nome, String cpf, String email,LocalDate dataCadastro, LocalDate dataNascimento) {
+    public Cliente(String nome, String cpf, String email, LocalDate dataCadastro, LocalDate dataNascimento) {
         this.nome = nome;
-        this.email = email;
         this.cpf = cpf;
+        this.email = email;
         this.dataCadastro = dataCadastro;
         this.dataNascimento = dataNascimento;
     }
@@ -103,5 +97,13 @@ public class Cliente implements Serializable {
 
     public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
+    }
+
+    public List<Endereco> getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(List<Endereco> endereco) {
+        this.endereco = endereco;
     }
 }
