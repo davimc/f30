@@ -1,8 +1,8 @@
 package com.carvalho.trinta.f30.resources;
 
-import com.carvalho.trinta.f30.DTO.ClienteDTO;
-import com.carvalho.trinta.f30.DTO.ClienteNewDTO;
-import com.carvalho.trinta.f30.DTO.ClienteUpdateDTO;
+import com.carvalho.trinta.f30.DTO.cliente.ClienteDTO;
+import com.carvalho.trinta.f30.DTO.cliente.ClienteNewDTO;
+import com.carvalho.trinta.f30.DTO.cliente.ClienteUpdateDTO;
 import com.carvalho.trinta.f30.domains.Cliente;
 import com.carvalho.trinta.f30.services.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;

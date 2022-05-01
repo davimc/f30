@@ -1,4 +1,4 @@
-package com.carvalho.trinta.f30.DTO;
+package com.carvalho.trinta.f30.DTO.cliente;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;

@@ -1,4 +1,4 @@
-package com.carvalho.trinta.f30.DTO;
+package com.carvalho.trinta.f30.DTO.cliente;
 
 import com.carvalho.trinta.f30.domains.Cliente;
 import java.io.Serializable;
