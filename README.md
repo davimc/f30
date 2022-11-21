@@ -12,4 +12,4 @@ A intenção é criar um sistema de fácil entendimento e aprendizagem para pess
 
 
 ## Atualização
-Devido à desativação da empresa, este projeto irá ser pausado por tempo indeterminado
+Devido à desativação da empresa, este projeto está pausado por tempo indeterminado
