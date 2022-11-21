@@ -9,3 +9,7 @@ futuramente tecnologias que serão detalhadas conforme forem implementadas.
 
 ## Diretriz
 A intenção é criar um sistema de fácil entendimento e aprendizagem para pessoas de idade mais elevada (entre 35 à 60 anos)
+
+
+## Atualização
+Devido à desativação da empresa, este projeto irá ser pausado por tempo indeterminado
